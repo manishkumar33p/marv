@@ -37,15 +37,13 @@
 
 // // export default Cart;
 
-
-
 // import React, { useState, useEffect } from 'react';
 // import { useLocation } from 'react-router-dom';
 // import "D:/marv/src/Shop/Cart.css"
 
 // const Cart = () => {
 //   const [cart, setCart] = useState([]);
-  
+
 //   // Get cart from local storage (if any)
 //   useEffect(() => {
 //     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -83,7 +81,6 @@
 // };
 
 // export default Cart;
-
 
 // import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
@@ -159,8 +156,6 @@
 
 // export default Cart;
 
-
-
 // import React, { useState, useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom'; // Use useNavigate in place of useHistory
 // import './Cart.css';  // Import the CSS correctly
@@ -235,12 +230,8 @@
 
 // export default Cart;
 
-
-
-
-
 // import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom'; 
+// import { useNavigate } from 'react-router-dom';
 // import './Cart.css';  // Import CSS
 
 // const Cart = () => {
@@ -311,12 +302,10 @@
 
 // export default Cart;
 
-
-
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Cart.css';  // Import CSS
-import NavBar from '../Navbar/Navbar';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Cart.css"; // Import CSS
+import NavBar from "../Navbar/Navbar";
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
@@ -332,7 +321,7 @@ const Cart = () => {
 
   // Function to remove item from the cart
   const removeItemFromCart = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
+    const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
     calculateTotal(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update local storage
@@ -340,7 +329,10 @@ const Cart = () => {
 
   // Function to calculate the total price of all products in the cart
   const calculateTotal = (cartItems) => {
-    const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.price.replace('$', '')), 0);
+    const totalPrice = cartItems.reduce(
+      (acc, item) => acc + parseFloat(item.price.replace("$", "")),
+      0
+    );
     setTotal(totalPrice.toFixed(2)); // Set the total price
   };
 
@@ -351,19 +343,26 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-            <NavBar />
+      <NavBar />
       <h2> Your Cart</h2>
       {cart.length > 0 ? (
         <div className="cart-box">
           <ul className="cart-item-list">
             {cart.map((item, index) => (
               <li key={index} className="cart-item">
-                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="cart-item-image"
+                />
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
                   <p>{item.price}</p>
                 </div>
-                <button className="remove-item-btn" onClick={() => removeItemFromCart(item.id)}>
+                <button
+                  className="remove-item-btn"
+                  onClick={() => removeItemFromCart(item.id)}
+                >
                   Remove
                 </button>
               </li>

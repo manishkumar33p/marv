@@ -1,13 +1,13 @@
-import React from 'react';
-import './Sidebar.css'; // Styling for the sidebar
+import React from "react";
+import "./Sidebar.css"; // Styling for the sidebar
 
 const Sidebar = ({ onFilterChange }) => {
   const handleCategoryChange = (e) => {
-    onFilterChange('category', e.target.value);
+    onFilterChange("category", e.target.value);
   };
 
   const handlePriceRangeChange = (e) => {
-    onFilterChange('price', e.target.value);
+    onFilterChange("price", e.target.value);
   };
 
   return (

@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 // import { IoClose, IoMenu } from "react-icons/io5";
@@ -39,7 +38,7 @@
 //       <nav className="nav container">
 //         <NavLink to="/" className="nav__logo">
 //         <img src={marv8}  className="nav__logo-img" />
-       
+
 //         </NavLink>
 
 //         <div
@@ -118,8 +117,6 @@
 // };
 
 // export default Navbar;
-
-
 
 // import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
@@ -243,11 +240,11 @@
 
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { IoCart,IoClose, IoMenu } from "react-icons/io5"; // Import cart icon
-// import { IoClose, IoMenu, IoCart } from "react-icons/io5"; 
+import { IoCart, IoClose, IoMenu } from "react-icons/io5"; // Import cart icon
+// import { IoClose, IoMenu, IoCart } from "react-icons/io5";
 import "./Navbar.css";
 import logo1 from "../logo1.png";
- import marv8 from "../marv8.jpg"
+import marv8 from "../marv8.jpg";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -272,7 +269,7 @@ const Navbar = () => {
   //   localStorage.setItem("cart", JSON.stringify(cartItems));
   // }, [cartItems]);
 
-   const cartItemCount = cartItems.length; 
+  const cartItemCount = cartItems.length;
   useEffect(() => {
     // Close menu when resizing
     const handleResize = () => {
@@ -281,13 +278,10 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-
-
-    
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -298,23 +292,38 @@ const Navbar = () => {
           <img src={marv8} alt="Logo" className="nav__logo-img" />
         </NavLink>
 
-        <div className={`nav__menu ${showMenu ? "show-menu" : ""}`} id="nav-menu">
+        <div
+          className={`nav__menu ${showMenu ? "show-menu" : ""}`}
+          id="nav-menu"
+        >
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink to="/" className="nav__link" onClick={closeMenuOnMobile}>About</NavLink>
+              <NavLink to="/" className="nav__link" onClick={closeMenuOnMobile}>
+                About
+              </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/shop" className="nav__link" onClick={closeMenuOnMobile}>Shop</NavLink>
+              <NavLink
+                to="/shop"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Shop
+              </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/contact-us" className="nav__link" onClick={closeMenuOnMobile}>Contact Us</NavLink>
+              <NavLink
+                to="/contact-us"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Contact Us
+              </NavLink>
             </li>
 
-                        <li className="nav__item dropdown">
-               <span className="nav__link dropdown-toggle">
-                 More
-               </span>
-               <ul className="dropdown-menu">
+            <li className="nav__item dropdown">
+              <span className="nav__link dropdown-toggle">More</span>
+              <ul className="dropdown-menu">
                 <li className="dropdown-item">
                   <NavLink
                     to="/data-entry"
@@ -336,20 +345,16 @@ const Navbar = () => {
               </ul>
             </li>
             <li className="nav__item">
-              <NavLink
-                to="/get-started"
-                className="nav__link nav__cta"
-              >
+              <NavLink to="/get-started" className="nav__link nav__cta">
                 Login
               </NavLink>
             </li>
 
-            
             <li className="nav__item">
               <NavLink to="/cart" className="nav__link">
                 <div className="nav__cart">
                   <IoCart className="nav__cart-icon" />
-                 {/* Display cart item count
+                  {/* Display cart item count
                  {cartItemCount > 0 && (
                     <span className="cart-count">{cartItemCount}</span>
                   )} */}
@@ -371,4 +376,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

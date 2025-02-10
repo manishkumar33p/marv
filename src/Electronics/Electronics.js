@@ -1,32 +1,49 @@
-
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "D:/marv/src/Shop/Shop.css";
-import NavBar from '../Navbar/Navbar';
+import ".Shop.css";
+import NavBar from "../Navbar/Navbar";
 import charger1 from "../charger1.jpg";
 import charger2 from "../charger2.jpg";
 import Footer from "../Footer/Footer";
-import charger3 from "../charger3.jpg"
-import charger4 from "../charger4.jpg"
-import charger5 from "../charger5.jpg"
-import charger6 from "../charger6.jpg"
-import charger7 from "../charger7.jpg"
-import charger8 from "../charger8.jpg"
-import charger9 from "../charger9.jpg"
-import charger10 from "../charger10.jpg"
-import charger11 from "../charger11.jpg"
-import charger12 from "../charger12.jpg"
-import charger13 from "../charger13.jpg"
-import charger14 from "../charger14.jpg"
+import charger3 from "../charger3.jpg";
+import charger4 from "../charger4.jpg";
+import charger5 from "../charger5.jpg";
+import charger6 from "../charger6.jpg";
+import charger7 from "../charger7.jpg";
+import charger8 from "../charger8.jpg";
+import charger9 from "../charger9.jpg";
+import charger10 from "../charger10.jpg";
+import charger11 from "../charger11.jpg";
+import charger12 from "../charger12.jpg";
+import charger13 from "../charger13.jpg";
+import charger14 from "../charger14.jpg";
 
 // other image imports...
 
 // Sample product data
 const products = [
-  { id: 1, name: "Dell 180 watt ", image: charger1, price: "$499", description: "Original 100% furnished" },
-  { id: 2, name: "Dell type c 90 watt", image: charger2, price: "$799", description: "Original 100% furnished" },
-  { id: 3, name: "HP blue pin 120 watt", image: charger3, price: "$150", description: "Original 100% furnished" },
-    {
+  {
+    id: 1,
+    name: "Dell 180 watt ",
+    image: charger1,
+    price: "$499",
+    description: "Original 100% furnished",
+  },
+  {
+    id: 2,
+    name: "Dell type c 90 watt",
+    image: charger2,
+    price: "$799",
+    description: "Original 100% furnished",
+  },
+  {
+    id: 3,
+    name: "HP blue pin 120 watt",
+    image: charger3,
+    price: "$150",
+    description: "Original 100% furnished",
+  },
+  {
     id: 4,
     name: "Lenovo usb 90 watt",
     image: charger4, // All products will use this image
@@ -64,7 +81,7 @@ const products = [
   {
     id: 9,
     name: "Dell 65 watt big pin",
-    image: charger9,  // All products will use this image
+    image: charger9, // All products will use this image
     price: "$120",
     description: "Original 100% furnished",
   },
@@ -103,7 +120,7 @@ const products = [
     price: "$249",
     description: "Original 100% furnished",
   },
- 
+
   // Add other products...
 ];
 
@@ -128,19 +145,23 @@ const Electronics = () => {
     <div className="shop-container">
       <NavBar />
       <h2 className="shop-heading">Our Electronics Products</h2>
-      
+
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} className="product-image" />
+            <img
+              src={product.image}
+              alt={product.name}
+              className="product-image"
+            />
             <h3 className="product-name">{product.name}</h3>
             <p className="product-price">{product.price}</p>
             <p className="product-description">{product.description}</p>
             <NavLink to={`/product/${product.id}`} className="product-link">
               <button className="view-details-btn">View Details</button>
             </NavLink>
-            <button 
-              className="view-details-btn1" 
+            <button
+              className="view-details-btn1"
               onClick={() => addToCart(product)}
             >
               Add to Cart
@@ -148,10 +169,9 @@ const Electronics = () => {
           </div>
         ))}
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };
 
 export default Electronics;
-

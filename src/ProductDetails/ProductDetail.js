@@ -1,32 +1,30 @@
-import React, { useState , useEffect} from 'react';
-import NavBar from '../Navbar/Navbar';
-import "D:/marv/src/ProductDetails/ProductDetails.css";
+import React, { useState, useEffect } from "react";
+import NavBar from "../Navbar/Navbar";
+import "./ProductDetails.css";
 import Footer from "../Footer/Footer";
-import { useParams } from 'react-router-dom';
-import marv13 from "../marv13.jpg"
-import marv14 from "../marv14.jpg"
-import marv15 from "../marv15.jpg"
-import marv16 from "../marv16.jpg"
-import marv17 from "../marv17.jpg"
-import marv18 from "../marv18.jpg"
-import marv19 from "../marv19.jpg"
-import marv20 from "../marv20.jpg"
-import marv21 from "../marv21.jpg"
-import marv22 from "../marv22.jpg"
-import marv23 from "../marv23.jpg"
-import marv24 from "../marv24.jpg"
-import marv25 from "../marv25.jpg"
-import marv26 from "../marv26.jpg"
-import marv27 from "../marv27.jpg"
-import marv28 from "../marv28.jpg"
-import marv29 from "../marv29.jpg"
-import marv30 from "../marv30.jpg"
-import marv31 from "../marv31.jpg"
-import marv32 from "../marv32.jpg"
+import { useParams } from "react-router-dom";
+import marv13 from "../marv13.jpg";
+import marv14 from "../marv14.jpg";
+import marv15 from "../marv15.jpg";
+import marv16 from "../marv16.jpg";
+import marv17 from "../marv17.jpg";
+import marv18 from "../marv18.jpg";
+import marv19 from "../marv19.jpg";
+import marv20 from "../marv20.jpg";
+import marv21 from "../marv21.jpg";
+import marv22 from "../marv22.jpg";
+import marv23 from "../marv23.jpg";
+import marv24 from "../marv24.jpg";
+import marv25 from "../marv25.jpg";
+import marv26 from "../marv26.jpg";
+import marv27 from "../marv27.jpg";
+import marv28 from "../marv28.jpg";
+import marv29 from "../marv29.jpg";
+import marv30 from "../marv30.jpg";
+import marv31 from "../marv31.jpg";
+import marv32 from "../marv32.jpg";
 // Sample products
 const products = [
-
-  
   // The same data as before
   {
     id: 1,
@@ -87,7 +85,7 @@ const products = [
   {
     id: 9,
     name: "Design Blinds",
-    image: marv21,  // All products will use this image
+    image: marv21, // All products will use this image
     price: "$120",
     description: "Comfortable dining chair with cushion seat.",
   },
@@ -173,13 +171,13 @@ const products = [
 
 const ProductDetail = () => {
   const { id } = useParams();
-    const [cart, setCart] = useState([]);
-  
-    // Load cart from localStorage if any
-    useEffect(() => {
-      const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCart(savedCart);
-    }, []);
+  const [cart, setCart] = useState([]);
+
+  // Load cart from localStorage if any
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(savedCart);
+  }, []);
   const product = products.find((prod) => prod.id === parseInt(id));
 
   const addToCart = (product) => {
@@ -191,22 +189,24 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail-container">
-     <NavBar />
-     <div>
-      <h2>{product.name}</h2>
-      <img src={product.image} alt={product.name} className="product-detail-image" />
-      <p>{product.description}</p>
-      <p className="product-detail-price">{product.price}</p>
-      <button 
-              className="view-details-btn1" 
-              onClick={() => addToCart(product)}
-            >
-              Add to Cart
-            </button>
+      <NavBar />
+      <div>
+        <h2>{product.name}</h2>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-detail-image"
+        />
+        <p>{product.description}</p>
+        <p className="product-detail-price">{product.price}</p>
+        <button
+          className="view-details-btn1"
+          onClick={() => addToCart(product)}
+        >
+          Add to Cart
+        </button>
       </div>
-  
     </div>
-    
   );
 };
 
