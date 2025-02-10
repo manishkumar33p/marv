@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "./Shop.css";
+import "../Shop/Shop.css";
 import NavBar from "../Navbar/Navbar";
 import charger1 from "../charger1.jpg";
 import charger2 from "../charger2.jpg";
