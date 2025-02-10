@@ -171,14 +171,14 @@
 // const Shop = () => {
 //   return (
 //     <div className="shop-container">
-      
+
 //       <NavBar />
 //       <h2 className="shop-heading">Our Products</h2>
 //       <div className="product-grid">
-        
+
 //         {products.map((product) => (
 //           <div key={product.id} className="product-card">
-            
+
 //             <img src={product.image} alt={product.name} className="product-image" />
 //             <h3 className="product-name">{product.name}</h3>
 //             <p className="product-price">{product.price}</p>
@@ -195,7 +195,6 @@
 // };
 
 // export default Shop;
-
 
 // import React, { useState } from 'react';
 // import { NavLink } from "react-router-dom";
@@ -376,8 +375,8 @@
 //               <button className="view-details-btn">View Details</button>
 //             </NavLink>
 //             {/* Add to Cart Button */}
-//             <button 
-//               className="view-details-btn1" 
+//             <button
+//               className="view-details-btn1"
 //               onClick={() => addToCart(product)}
 //             >
 //               Add to Cart
@@ -386,49 +385,65 @@
 //         ))}
 //       </div>
 
-      
 //     </div>
 //   );
 // };
 
 // export default Shop;
 
-
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Sidebar from '../Sidebar/Sidebar';
-import "D:/marv/src/Shop/Shop.css";
-import NavBar from '../Navbar/Navbar';
+import Sidebar from "../Sidebar/Sidebar";
+import "./Shop.css";
+import NavBar from "../Navbar/Navbar";
 import marv8 from "../marv8.jpg";
 import marv9 from "../marv9.png";
 import Footer from "../Footer/Footer";
-import marv13 from "../marv13.jpg"
-import marv14 from "../marv14.jpg"
-import marv16 from "../marv16.jpg"
-import marv17 from "../marv17.jpg"
-import marv18 from "../marv18.jpg"
-import marv19 from "../marv19.jpg"
-import marv20 from "../marv20.jpg"
-import marv21 from "../marv21.jpg"
-import marv22 from "../marv22.jpg"
-import marv23 from "../marv23.jpg"
-import marv24 from "../marv24.jpg"
-import marv25 from "../marv25.jpg"
-import marv26 from "../marv26.jpg"
-import marv27 from "../marv27.jpg"
-import marv28 from "../marv28.jpg"
-import marv29 from "../marv29.jpg"
-import marv30 from "../marv30.jpg"
-import marv31 from "../marv31.jpg"
-import marv32 from "../marv32.jpg"
+import marv13 from "../marv13.jpg";
+import marv14 from "../marv14.jpg";
+import marv16 from "../marv16.jpg";
+import marv17 from "../marv17.jpg";
+import marv18 from "../marv18.jpg";
+import marv19 from "../marv19.jpg";
+import marv20 from "../marv20.jpg";
+import marv21 from "../marv21.jpg";
+import marv22 from "../marv22.jpg";
+import marv23 from "../marv23.jpg";
+import marv24 from "../marv24.jpg";
+import marv25 from "../marv25.jpg";
+import marv26 from "../marv26.jpg";
+import marv27 from "../marv27.jpg";
+import marv28 from "../marv28.jpg";
+import marv29 from "../marv29.jpg";
+import marv30 from "../marv30.jpg";
+import marv31 from "../marv31.jpg";
+import marv32 from "../marv32.jpg";
 // other image imports...
 
 // Sample product data
 const products = [
-  { id: 1, name: "Interior Design", image: marv13, price: "$499", description: "A stylish modern sofa for your living room." },
-  { id: 2, name: "Wall Panel", image: marv14, price: "$799", description: "A beautiful wooden dining table set for 6." },
-  { id: 3, name: "Wooden Flooring", image: marv9, price: "$150", description: "Ergonomic office chair with adjustable height." },
-    {
+  {
+    id: 1,
+    name: "Interior Design",
+    image: marv13,
+    price: "$499",
+    description: "A stylish modern sofa for your living room.",
+  },
+  {
+    id: 2,
+    name: "Wall Panel",
+    image: marv14,
+    price: "$799",
+    description: "A beautiful wooden dining table set for 6.",
+  },
+  {
+    id: 3,
+    name: "Wooden Flooring",
+    image: marv9,
+    price: "$150",
+    description: "Ergonomic office chair with adjustable height.",
+  },
+  {
     id: 4,
     name: "Printed Wallpaper",
     image: marv16, // All products will use this image
@@ -466,7 +481,7 @@ const products = [
   {
     id: 9,
     name: "Design Blinds",
-    image: marv21,  // All products will use this image
+    image: marv21, // All products will use this image
     price: "$120",
     description: "Comfortable dining chair with cushion seat.",
   },
@@ -564,20 +579,21 @@ const Shop = () => {
     let updatedProducts = products;
 
     if (type === "category" && value) {
-      updatedProducts = updatedProducts.filter(product => product.category === value);
+      updatedProducts = updatedProducts.filter(
+        (product) => product.category === value
+      );
     }
 
     if (type === "price" && value) {
-      const [min, max] = value.split("-").map(num => parseInt(num));
-      updatedProducts = updatedProducts.filter(product => {
-        const productPrice = parseInt(product.price.replace('$', ''));
+      const [min, max] = value.split("-").map((num) => parseInt(num));
+      updatedProducts = updatedProducts.filter((product) => {
+        const productPrice = parseInt(product.price.replace("$", ""));
         return productPrice >= min && productPrice <= max;
       });
     }
 
     setFilteredProducts(updatedProducts);
   };
-
 
   // Function to handle adding product to cart
   const addToCart = (product) => {
@@ -595,15 +611,19 @@ const Shop = () => {
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} className="product-image" />
+            <img
+              src={product.image}
+              alt={product.name}
+              className="product-image"
+            />
             <h3 className="product-name">{product.name}</h3>
             <p className="product-price">{product.price}</p>
             <p className="product-description">{product.description}</p>
             <NavLink to={`/product/${product.id}`} className="product-link">
               <button className="view-details-btn">View Details</button>
             </NavLink>
-            <button 
-              className="view-details-btn1" 
+            <button
+              className="view-details-btn1"
               onClick={() => addToCart(product)}
             >
               Add to Cart
@@ -611,10 +631,9 @@ const Shop = () => {
           </div>
         ))}
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };
 
 export default Shop;
-
